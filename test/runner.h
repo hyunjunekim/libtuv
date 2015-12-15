@@ -47,7 +47,7 @@ extern "C" {
 #endif
 
 
-#if defined(__NUTTX__) || defined(__TUV_RAW__)
+#if defined(__NUTTX__) || defined(__MBED__)
 #define EMBED_LOW_MEMORY
 #endif
 

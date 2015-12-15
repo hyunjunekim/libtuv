@@ -14,40 +14,21 @@
 
 cmake_minimum_required(VERSION 2.8)
 
-# temporary block to make one file at a time for mbed
-if(${PLATFORM_NAME_L} STREQUAL "mbed")
-  set(COMMON_SRCFILES
-        "${SOURCE_ROOT}/uv_handle.c"
-        "${SOURCE_ROOT}/uv_loop.c"
-        "${SOURCE_ROOT}/uv_idle.c"
-        "${SOURCE_ROOT}/uv_run.c"
-        "${SOURCE_ROOT}/uv_timer.c"
-        "${SOURCE_ROOT}/uv_req.c"
-
-        "${SOURCE_ROOT}/uv_async.c"
-        "${SOURCE_ROOT}/uv_util.c"
-        "${SOURCE_ROOT}/tuv_debuglog.c"
-        "${SOURCE_ROOT}/uv_error.c"
-
-        "${SOURCE_ROOT}/uv_inet.c"
-        )
-else()
-  set(COMMON_SRCFILES
-        "${SOURCE_ROOT}/uv_handle.c"
-        "${SOURCE_ROOT}/uv_loop.c"
-        "${SOURCE_ROOT}/uv_idle.c"
-        "${SOURCE_ROOT}/uv_run.c"
-        "${SOURCE_ROOT}/uv_timer.c"
-        "${SOURCE_ROOT}/uv_req.c"
-        "${SOURCE_ROOT}/uv_fs.c"
-        "${SOURCE_ROOT}/uv_async.c"
-        "${SOURCE_ROOT}/uv_util.c"
-        "${SOURCE_ROOT}/tuv_debuglog.c"
-        "${SOURCE_ROOT}/uv_error.c"
-        "${SOURCE_ROOT}/uv_dir.c"
-        "${SOURCE_ROOT}/uv_inet.c"
-        )
-endif()
+set(COMMON_SRCFILES
+      "${SOURCE_ROOT}/uv_handle.c"
+      "${SOURCE_ROOT}/uv_loop.c"
+      "${SOURCE_ROOT}/uv_idle.c"
+      "${SOURCE_ROOT}/uv_run.c"
+      "${SOURCE_ROOT}/uv_timer.c"
+      "${SOURCE_ROOT}/uv_req.c"
+      "${SOURCE_ROOT}/uv_fs.c"
+      "${SOURCE_ROOT}/uv_async.c"
+      "${SOURCE_ROOT}/uv_util.c"
+      "${SOURCE_ROOT}/tuv_debuglog.c"
+      "${SOURCE_ROOT}/uv_error.c"
+      "${SOURCE_ROOT}/uv_dir.c"
+      "${SOURCE_ROOT}/uv_inet.c"
+      )
 
 set(LIB_TUV_SRCFILES
       ${COMMON_SRCFILES}
@@ -71,7 +52,7 @@ set_target_properties(${TARGETLIBNAME} PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${LIB_OUT}"
     RUNTIME_OUTPUT_DIRECTORY "${BIN_OUT}")
 
-if(DEFINED COPY_TARGET_LIB)
+if(DEFINED COPY_TARGET_LIB AND NOT DEFINED LIBTUV_CUSTOM_LIB_OUT)
   add_custom_command(TARGET ${TARGETLIBNAME} POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${TARGETLIBNAME}>
                                   "${COPY_TARGET_LIB}"

@@ -40,6 +40,7 @@
 #include <unistd.h>
 
 int uv_cwd(char* buffer, size_t* size) {
+#if TUV_CONFIG_FILESYSTEM
   if (buffer == NULL || size == NULL)
     return -EINVAL;
 
@@ -54,4 +55,7 @@ int uv_cwd(char* buffer, size_t* size) {
   }
 
   return 0;
+#else
+  return -EINVAL;
+#endif
 }

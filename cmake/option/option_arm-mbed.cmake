@@ -29,7 +29,7 @@ set(PLATFORM_SRCFILES
 
 set(FLAGS_COMMON
       ${FLAGS_COMMON}
-      "-D__TUV_MBED__"
+      "-D__MBED__"
       )
 
 # use "mbed" lower case for platform path
@@ -59,12 +59,9 @@ set(TARGET_INC ${TARGET_INC} "${TARGET_SYSTEMROOT}/source")
 
 # build tester as library
 set(BUILD_TEST_LIB "yes")
-unset(BUILD_TEST_LIB CACHE)
 
-
-# set copy libs to ${TARGET_SYSTEMROOT}/libtiv
-file(MAKE_DIRECTORY "${TARGET_SYSTEMROOT}/libtuv")
-set(COPY_TARGET_LIB "${TARGET_SYSTEMROOT}/libtuv/.")
+# set copy libs to ${TARGET_SYSTEMROOT}/lib
+set(COPY_TARGET_LIB "${TARGET_SYSTEMROOT}/lib")
 
 # to help unittest to give host ip address
 if(EXISTS ${RAW_TEST}/tuv_host_ipaddress.h)

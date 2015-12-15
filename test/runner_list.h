@@ -35,7 +35,7 @@
  */
 
 
-#if !defined(__TUV_RAW__)
+#if !defined(__MBED__)
 #define TEST_LIST_ALL(TE)                                                     \
   TE(idle_basic, 5000)                                                        \
   TE(active, 5000)                                                            \
@@ -112,7 +112,7 @@
   TE(getaddrinfo_basic_sync, 5000)                                            \
   TE(getaddrinfo_concurrent, 5000)                                            \
 
-#elif defined(__TUV_RAW__)
+#elif defined(__MBED__)
 #define TEST_LIST_EXT(TE)                                                     \
 
 #else
@@ -120,7 +120,7 @@
 
 #endif
 
-#if !defined(__TUV_RAW__)
+#if !defined(__MBED__)
 #define HELPER_LIST_ALL(TE)                                                   \
   TE(tcp4_echo_server, tcp4_echo_server)                                      \
 

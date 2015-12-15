@@ -108,6 +108,12 @@ int tuv_task_close(uv_thread_t *tid);
 
 
 //-----------------------------------------------------------------------------
+// fs
+
+typedef struct dirent uv__dirent_t;
+typedef int uv_file;
+
+//-----------------------------------------------------------------------------
 
 void tuv__platform_init(void);
 

@@ -40,6 +40,7 @@
 
 
 void uv__fs_scandir_cleanup(uv_fs_t* req) {
+#if TUV_CONFIG_FILESYSTEM
   uv__dirent_t** dents;
 
   dents = (uv__dirent_t**)req->ptr;
@@ -47,4 +48,7 @@ void uv__fs_scandir_cleanup(uv_fs_t* req) {
     req->nbufs--;
   for (; req->nbufs < (unsigned int) req->result; req->nbufs++)
     free(dents[req->nbufs]);
+#else
+
+#endif
 }

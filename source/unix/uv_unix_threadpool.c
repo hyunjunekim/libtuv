@@ -306,7 +306,7 @@ int uv_cancel(uv_req_t* req) {
   uv_loop_t* loop;
 
   switch (req->type) {
-#if !defined(__TUV_MBED__)
+#if !defined(__MBED__)
   case UV_FS:
     loop =  ((uv_fs_t*) req)->loop;
     wreq = &((uv_fs_t*) req)->work_req;
@@ -322,7 +322,7 @@ int uv_cancel(uv_req_t* req) {
     break;
 */
 #else
-  #pragma message "__TUV_MBED__ fix this"
+  #pragma message "__MBED__ fix this"
 #endif
   case UV_WORK:
     loop =  ((uv_work_t*) req)->loop;

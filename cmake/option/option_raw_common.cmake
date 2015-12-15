@@ -14,7 +14,6 @@
 
 set(FLAGS_COMMON
       "-fno-builtin"
-      "-D__TUV_RAW__"
       )
 
 set(FLAGS_CXXONLY

@@ -88,7 +88,7 @@ void uv__async_send(struct uv__async* wa);
 void uv__async_init(struct uv__async* wa);
 int uv__async_start(uv_loop_t* loop, struct uv__async* wa, uv__async_cb cb);
 void uv__async_stop(uv_loop_t* loop, struct uv__async* wa);
-#if defined(__TUV_RAW__)
+#if defined(__MBED__)
 void uv__async_check(uv_loop_t* loop);
 #endif
 

@@ -1,5 +1,5 @@
 yotta_modules/
 yotta_targets/
-libtuv/
+lib/
 build/
 source/tuv_mbed_ipaddress.h

@@ -31,6 +31,10 @@ else()
                  ${TEST_PLATFORMFILES})
 endif()
 
+if(TARGET_BOARD STREQUAL "mbedk64f")
+  file(MAKE_DIRECTORY "${TARGET_SYSTEMROOT}/lib")
+endif()
+
 target_include_directories(${TUVTESTNAME} SYSTEM PRIVATE ${TARGET_INC})
 target_include_directories(${TUVTESTNAME} PUBLIC ${LIB_TUV_INCDIRS}
                                                  ${TUV_TEST_INCDIRS})

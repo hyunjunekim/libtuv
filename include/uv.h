@@ -68,11 +68,7 @@
 
 #include "uv__async.h"
 #include "uv__req.h"      // req should be placed before fs
-#if !defined(__TUV_RAW__) // temp block
 #include "uv__fs.h"
-#else
-#pragma message "__TUV_RAW__ FIX THESE"
-#endif
 #include "uv__fd.h"
 #include "uv__stream.h"
 #include "uv__tcp.h"
@@ -80,11 +76,9 @@
 #include "uv__thread.h"
 
 #include "uv__threadpool.h"
-#if !defined(__TUV_RAW__)
 #include "uv__getaddrinfo.h"
 
 #include "uv__dir.h"
-#endif
 
 #include "uv__platform.h"
 

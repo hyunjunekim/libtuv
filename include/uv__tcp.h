@@ -38,7 +38,7 @@
 #define __uv__tcp_header__
 
 #include <assert.h>
-#ifdef __TUV_MBED__
+#ifdef __MBED__
 #include "tuv_mbed_port.h"
 #else
 #include <sys/socket.h>

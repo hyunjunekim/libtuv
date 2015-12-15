@@ -62,6 +62,10 @@
 #  define socklen_t uint32_t
 #endif
 
+/* to make compilation happy */
+#define INET6_ADDRSTRLEN 63
+
+
 /* Socket protocol types (TCP/UDP/RAW) */
 #ifndef SOCK_STREAM
 #define SOCK_STREAM     1

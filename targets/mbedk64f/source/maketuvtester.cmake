@@ -29,8 +29,7 @@ set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS}
                   -mthumb
                   -mcpu=cortex-m4
                   )
-add_definitions("-D__TUV_MBED__")
-add_definitions("-D__TUV_RAW__")
+add_definitions("-D__MBED__")
 
 string(TOLOWER ${CMAKE_BUILD_TYPE} BUILD_TYPE_L)
 if (${BUILD_TYPE_L} STREQUAL "debug")
@@ -42,7 +41,7 @@ if(EXISTS ${CMAKE_CURRENT_LIST_DIR}/tuv_mbed_ipaddress.h)
 endif()
 
 # link tuv and tuvtester
-set(TUVLIBSPATH ${CMAKE_CURRENT_LIST_DIR}/../libtuv)
+set(TUVLIBSPATH ${CMAKE_CURRENT_LIST_DIR}/../lib)
 
 set(TUVLIBSFILES ${TUVLIBSPATH}/libtuv.a
                  ${TUVLIBSPATH}/libtuvtester.a

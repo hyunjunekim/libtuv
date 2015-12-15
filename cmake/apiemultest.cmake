@@ -25,6 +25,10 @@ else()
   message(FATAL_ERROR "BUILD_TEST_LIB must be 'yes'")
 endif()
 
+if(TARGET_BOARD STREQUAL "mbedk64f")
+  file(MAKE_DIRECTORY "${TARGET_SYSTEMROOT}/lib")
+endif()
+
 
 target_include_directories(${TUVTESTNAME} SYSTEM PRIVATE ${TARGET_INC})
 target_include_directories(${TUVTESTNAME} PUBLIC ${LIB_TUV_INCDIRS}
